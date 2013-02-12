@@ -12,6 +12,6 @@ def getDataFromDesk(status, label = null, host = 'example')
   return jsondecode['total']
 end
 
-def pushDataToGecko(url, apikey)
-  response = `curl -X POST #{url} -d '{"api_key":"#{apikey}","data":{"item":[{"text":"<p>New: #{new}</p><p> Active: #{active}/#{total}</p><p>Dev: #{awaitingDev}</p><p>Pending: #{pending}/#{total}","type":0}]}}'`
+def pushDataToGecko(url, apikey, data)
+  response = `curl -X POST #{url} -d '{"api_key":"#{apikey}","data":{#{data}]}}'`
 end
